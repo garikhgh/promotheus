@@ -9,9 +9,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -21,7 +18,7 @@ public class ProductFacade implements ProductUniquenessFacade {
 
 
     @Override
-    public ResponseMessage isUniqueProduct(ProductDto productDto) {
+    public ResponseMessage countProducts(ProductDto productDto) {
         log.info("Checking if the product is unique in the in memory counter {}", productDto.getName());
         var productCounter = ProductCounterService.getProductCounter();
 

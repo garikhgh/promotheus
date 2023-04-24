@@ -5,7 +5,7 @@ import com.example.demo.response.ResponseMessage;
 
 public interface ProductUniquenessFacade {
 
-    ResponseMessage isUniqueProduct(ProductDto productDto);
+    ResponseMessage countProducts(ProductDto productDto);
 
 
 }
