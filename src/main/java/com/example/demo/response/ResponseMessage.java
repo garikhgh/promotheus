@@ -11,7 +11,6 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = true)
 public class ResponseMessage extends AbstractProductErrorResponse{
 
-
     @JsonProperty("body")
     private ProductDto body;
 
@@ -27,5 +26,4 @@ public class ResponseMessage extends AbstractProductErrorResponse{
         this.body = body;
         this.productCounter = productCounter;
     }
-
 }

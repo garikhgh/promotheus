@@ -19,6 +19,7 @@ public class ProductService implements ProductDomainService {
     private final Map map;
 
 
+
     @Override
     public ProductDto persistProduct(ProductDto productDto) {
         log.info("Saving product {}", productDto.getName());

@@ -9,6 +9,7 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractProductErrorResponse {
 
+
     @JsonIgnore
     private Integer httpStatus;
 
@@ -28,6 +29,5 @@ public abstract class AbstractProductErrorResponse {
         this.httpStatus = 200;
         this.errors = new ErrorDto();
     }
-
 
 }

@@ -29,4 +29,5 @@ public class ProductDto {
     public int hashCode() {
         return Objects.hash(getName());
     }
+
 }

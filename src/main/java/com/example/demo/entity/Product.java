@@ -20,6 +20,7 @@ import java.util.Objects;
 @Slf4j
 public class Product {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
@@ -42,4 +43,5 @@ public class Product {
     public int hashCode() {
         return getClass().hashCode();
     }
+
 }

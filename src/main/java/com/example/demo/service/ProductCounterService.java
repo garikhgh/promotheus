@@ -12,6 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class ProductCounterService {
 
+
     private static final Set<Integer> productCounter = ConcurrentHashMap.newKeySet();
 
 
@@ -26,4 +27,5 @@ public class ProductCounterService {
     public Number getProductQuantity() {
         return getProductCountSize();
     }
+
 }

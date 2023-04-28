@@ -25,4 +25,5 @@ public class MetricsService {
                 .register(registry);
         log.info("CounterMetric is already registered in the Prometheus.");
     }
+
 }

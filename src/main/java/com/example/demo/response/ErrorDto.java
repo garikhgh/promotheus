@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public class ErrorDto {
 
+
     @JsonProperty("message")
     private String message;
 
@@ -19,4 +20,5 @@ public class ErrorDto {
 
     @JsonIgnore
     private HttpStatus status;
+
 }

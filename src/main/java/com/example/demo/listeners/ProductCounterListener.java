@@ -12,7 +12,7 @@ public class ProductCounterListener {
 
     @PostPersist
     void postPersistProductCounter(Object productDto) {
-        log.info("Trying to add the product into the inMemory db!");
+        log.info("Trying  to add the product into the inMemory db!");
         var counter = ProductCounterService.getProductCounter();
         if (productDto instanceof Product product) {
             var entity = Map.INSTANCE.fromProduct(product);
