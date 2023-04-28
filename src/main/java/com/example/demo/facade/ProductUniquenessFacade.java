@@ -7,5 +7,7 @@ public interface ProductUniquenessFacade {
 
     ResponseMessage countProducts(ProductDto productDto);
 
+    ResponseMessage deleteProduct(String productName);
+
 
 }

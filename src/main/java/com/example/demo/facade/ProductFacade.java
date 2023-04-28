@@ -31,4 +31,9 @@ public class ProductFacade implements ProductUniquenessFacade {
             return new ResponseMessage(ErrorCategory.DUPLICATED_PRODUCT.errorDto(), ProductCounterService.getProductCountSize());
         }
     }
+
+    @Override
+    public ResponseMessage deleteProduct(String productName) {
+        return null;
+    }
 }

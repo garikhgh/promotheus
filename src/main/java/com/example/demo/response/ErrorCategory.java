@@ -7,7 +7,8 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCategory {
     DUPLICATED_PRODUCT("Such a product exists already", HttpStatus.NOT_ACCEPTABLE),
     NAME_NOT_ALLOWED("The product name length should not be greater than 20", HttpStatus.INTERNAL_SERVER_ERROR),
-    UNIQUE("The product is unique", HttpStatus.OK);
+    UNIQUE("The product is unique", HttpStatus.OK),
+    PRODUCT_NOT_FOUND("Product with the name is not found.", HttpStatus.NOT_FOUND);
 
     private final String id;
     private final HttpStatus httpStatus;

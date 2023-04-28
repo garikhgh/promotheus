@@ -24,4 +24,13 @@ public class ProductController {
         return ResponseEntity.status(result.getHttpStatus()).body(result);
     }
 
+    @DeleteMapping("/delete/{productName}")
+    public ResponseEntity<ResponseMessage> deleteProduct(@PathVariable String productName) {
+
+        log.info("Deleting product with name={}", productName);
+        var result = productFacade.deleteProduct(productName);
+        log.info("Product is deleted with name={}", productName);
+        return ResponseEntity.status(result.getHttpStatus()).body(result);
+    }
+
 }
