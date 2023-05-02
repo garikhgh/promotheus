@@ -7,14 +7,15 @@ import lombok.Data;
 import java.time.Instant;
 
 
+
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductCounterDto {
 
-    @JsonProperty("counter")
-    private int counter;
+     @JsonProperty("counter")
+     private int counter;
 
-    @JsonProperty("createdAt")
-    private Instant createdAt;
+     @JsonProperty("createdAt")
+     private Instant createdAt;
 
 }
