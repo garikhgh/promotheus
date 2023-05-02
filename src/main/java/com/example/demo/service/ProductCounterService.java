@@ -7,23 +7,24 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+
 @RequiredArgsConstructor
 @Slf4j
 @Service
 public class ProductCounterService {
 
-    private static final Set<Integer> productCounter = ConcurrentHashMap.newKeySet();
+     private static final Set<Integer> productCounter = ConcurrentHashMap.newKeySet();
 
 
-    public static Integer getProductCountSize() {
-        return productCounter.size();
-    }
+     public static Integer getProductCountSize() {
+          return productCounter.size();
+     }
 
-    public static Set<Integer> getProductCounter() {
-        return productCounter;
-    }
+     public static Set<Integer> getProductCounter() {
+          return productCounter;
+     }
 
-    public Number getProductQuantity() {
-        return getProductCountSize();
-    }
+     public Number getProductQuantity() {
+          return getProductCountSize();
+     }
 }
