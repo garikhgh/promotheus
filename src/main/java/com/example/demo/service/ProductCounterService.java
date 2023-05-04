@@ -13,18 +13,18 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class ProductCounterService {
 
-     private static final Set<Integer> productCounter = ConcurrentHashMap.newKeySet();
+    private static final Set<String> productCounter = ConcurrentHashMap.newKeySet();
 
 
-     public static Integer getProductCountSize() {
-          return productCounter.size();
-     }
+    public static Integer getProductCountSize() {
+        return productCounter.size();
+    }
 
-     public static Set<Integer> getProductCounter() {
-          return productCounter;
-     }
+    public static Set<String> getProductCounter() {
+        return productCounter;
+    }
 
-     public Number getProductQuantity() {
-          return getProductCountSize();
-     }
+    public Number getProductQuantity() {
+        return getProductCountSize();
+    }
 }

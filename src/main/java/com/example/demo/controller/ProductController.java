@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class ProductController {
 
-     private final ProductFacade productFacade;
+    private final ProductFacade productFacade;
 
-     @PostMapping("/create-product")
-     public ResponseEntity<ResponseMessage> createProduct(@RequestBody ProductDto productDto) {
-          log.info("Posting a new product with {} id", productDto.getName());
-          var result = productFacade.countProducts(productDto);
-          log.info("Posting is done with status {}", result.getHttpStatus());
-          return ResponseEntity.status(result.getHttpStatus()).body(result);
-     }
+    @PostMapping("/create-product")
+    public ResponseEntity<ResponseMessage> countProduct(@RequestBody ProductDto productDto) {
+        log.info("Posting a new product with {} id", productDto.getName());
+        var result = productFacade.countProducts(productDto);
+        log.info("Posting is done with status {}", result.getHttpStatus());
+        return ResponseEntity.status(result.getHttpStatus()).body(result);
+    }
 
 }

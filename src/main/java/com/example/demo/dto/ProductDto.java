@@ -13,21 +13,21 @@ import java.util.Objects;
 public class ProductDto {
 
 
-     @JsonProperty("name")
-     private String name;
+    @JsonProperty("name")
+    private String name;
 
-     @JsonProperty("description")
-     private String description;
+    @JsonProperty("description")
+    private String description;
 
-     @Override
-     public boolean equals(Object o) {
-          if (this == o) return true;
-          if (!(o instanceof ProductDto that)) return false;
-          return Objects.equals(getName(), that.getName());
-     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProductDto that)) return false;
+        return Objects.equals(getName(), that.getName());
+    }
 
-     @Override
-     public int hashCode() {
-          return Objects.hash(getName());
-     }
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
+    }
 }

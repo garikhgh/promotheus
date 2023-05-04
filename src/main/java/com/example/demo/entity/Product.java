@@ -21,26 +21,26 @@ import java.util.Objects;
 @Slf4j
 public class Product {
 
-     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Long productId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long productId;
 
-     @Column(name = "product_name", length = 20)
-     private String name;
+    @Column(name = "product_name", length = 20)
+    private String name;
 
-     @Column(name = "product_description")
-     private String description;
+    @Column(name = "product_description")
+    private String description;
 
-     @Override
-     public boolean equals(Object o) {
-          if (this == o) return true;
-          if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-          Product product = (Product) o;
-          return getProductId() != null && Objects.equals(getProductId(), product.getProductId());
-     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Product product = (Product) o;
+        return getProductId() != null && Objects.equals(getProductId(), product.getProductId());
+    }
 
-     @Override
-     public int hashCode() {
-          return getClass().hashCode();
-     }
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

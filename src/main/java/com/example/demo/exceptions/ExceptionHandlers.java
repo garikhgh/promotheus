@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class ExceptionHandlers {
 
-     @ExceptionHandler(JDBCException.class)
-     public ResponseEntity<ResponseMessage> internalServerExceptionsHandler(Exception exception) {
-          var errorResult = new ResponseMessage(ErrorCategory.NAME_NOT_ALLOWED.errorDto(), ProductCounterService.getProductCountSize());
-          return ResponseEntity.status(errorResult.getHttpStatus()).body(errorResult);
-     }
+    @ExceptionHandler(JDBCException.class)
+    public ResponseEntity<ResponseMessage> internalServerExceptionsHandler(Exception exception) {
+        var errorResult = new ResponseMessage(ErrorCategory.NAME_NOT_ALLOWED.errorDto(), ProductCounterService.getProductCountSize());
+        return ResponseEntity.status(errorResult.getHttpStatus()).body(errorResult);
+    }
 }

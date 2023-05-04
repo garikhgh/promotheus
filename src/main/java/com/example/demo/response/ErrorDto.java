@@ -15,12 +15,12 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public class ErrorDto {
 
-     @JsonProperty("message")
-     private String message;
+    @JsonProperty("message")
+    private String message;
 
-     @JsonProperty("state")
-     private String state;
+    @JsonProperty("state")
+    private String state;
 
-     @JsonIgnore
-     private HttpStatus status;
+    @JsonIgnore
+    private HttpStatus status;
 }

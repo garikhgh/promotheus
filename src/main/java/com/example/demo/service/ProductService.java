@@ -15,16 +15,16 @@ import org.springframework.stereotype.Service;
 public class ProductService implements ProductDomainService {
 
 
-     private final ProductCounterService productCounterService;
-     private final ProductRepository productRepository;
-     private final Map map;
+    private final ProductCounterService productCounterService;
+    private final ProductRepository productRepository;
+    private final Map map;
 
 
-     @Override
-     public ProductDto persistProduct(ProductDto productDto) {
-          log.info("Saving product {}", productDto.getName());
-          Product savedProduct = productRepository.save(map.toProduct(productDto));
-          log.info("Product is already saved {}, the product quantity is {}", savedProduct.getName(), ProductCounterService.getProductCountSize());
-          return map.fromProduct(savedProduct);
-     }
+    @Override
+    public ProductDto persistProduct(ProductDto productDto) {
+        log.info("Saving product {}", productDto.getName());
+        Product savedProduct = productRepository.save(map.toProduct(productDto));
+        log.info("Product is already saved {}, the product quantity is {}", savedProduct.getName(), ProductCounterService.getProductCountSize());
+        return map.fromProduct(savedProduct);
+    }
 }

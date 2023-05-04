@@ -13,21 +13,21 @@ import lombok.Setter;
 public class ResponseMessage extends AbstractProductErrorResponse {
 
 
-     @JsonProperty("body")
-     private ProductDto body;
+    @JsonProperty("body")
+    private ProductDto body;
 
-     @JsonProperty(value = "productCounter")
-     private Number productCounter;
+    @JsonProperty(value = "productCounter")
+    private Number productCounter;
 
-     public ResponseMessage(final ErrorDto error, Number productCounter) {
-          super(error);
-          this.productCounter = productCounter;
-     }
+    public ResponseMessage(final ErrorDto error, Number productCounter) {
+        super(error);
+        this.productCounter = productCounter;
+    }
 
-     public ResponseMessage(final ErrorDto error, ProductDto body, int productCounter) {
-          super(error);
-          this.body = body;
-          this.productCounter = productCounter;
-     }
+    public ResponseMessage(final ErrorDto error, ProductDto body, int productCounter) {
+        super(error);
+        this.body = body;
+        this.productCounter = productCounter;
+    }
 
 }
