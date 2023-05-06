@@ -8,7 +8,7 @@ interface ProductUniquenessFacade {
 
     ResponseMessage countProducts(ProductDto productDto);
 
-    ResponseMessage counter(ProductDto productDto);
+    ResponseMessage createNewProduct(ProductDto productDto);
 
 
 }

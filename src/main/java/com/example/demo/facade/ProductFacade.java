@@ -1,6 +1,7 @@
 package com.example.demo.facade;
 
 import com.example.demo.dto.ProductDto;
+import com.example.demo.metrics.MetricServiceCounter;
 import com.example.demo.response.ErrorCategory;
 import com.example.demo.response.ResponseMessage;
 import com.example.demo.service.ProductCounterService;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 public class ProductFacade implements ProductUniquenessFacade {
 
     private final ProductService productService;
+    private final MetricServiceCounter metricServiceCounter;
 
 
     @Override
@@ -35,8 +37,9 @@ public class ProductFacade implements ProductUniquenessFacade {
     }
 
     @Override
-    public ResponseMessage counter(ProductDto productDto) {
-        return null;
+    public ResponseMessage createNewProduct(ProductDto productDto) {
+        ProductDto entity = productService.postProduct(productDto);
+        return new ResponseMessage(ErrorCategory.UNIQUE.errorDto(), entity, ProductCounterService.getProductCountSize());
     }
 
 

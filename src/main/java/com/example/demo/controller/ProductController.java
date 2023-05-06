@@ -28,4 +28,12 @@ public class ProductController {
         return ResponseEntity.status(result.getHttpStatus()).body(result);
     }
 
+    @PostMapping("/new-product")
+    public ResponseEntity<ResponseMessage> createProduct(@RequestBody ProductDto productDto) {
+        log.info("Posting a new product with {} id", productDto.getName());
+        var result = productFacade.createNewProduct(productDto);
+        log.info("Posting is done with status {}", result.getHttpStatus());
+        return ResponseEntity.status(result.getHttpStatus()).body(result);
+    }
+
 }

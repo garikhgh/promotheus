@@ -1,18 +1,23 @@
 package com.example.demo.metrics;
 
 
-import io.prometheus.client.Counter;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MetricServiceCounter {
-    public static final Counter counter = Counter.build()
-            .name("Counter")
-            .help("Total Products")
-            .register();
 
-    private MetricServiceCounter() {
+    private final Counter count;
+
+    public MetricServiceCounter(MeterRegistry registry) {
+        this.count = Counter.builder("myCounter")
+                .tag("product", "counter")
+                .register(registry);
     }
 
-    void processRequest() {
-        counter.inc();
+    public void processRequest() {
+        this.count.increment();
+
     }
 }
