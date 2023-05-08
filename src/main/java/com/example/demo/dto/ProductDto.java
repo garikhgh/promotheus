@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.util.Objects;
 
+
 @Data
 //@EqualsAndHashCode
 @JsonInclude(JsonInclude.Include.NON_NULL)

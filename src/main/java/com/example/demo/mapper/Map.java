@@ -9,6 +9,7 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface Map {
     Map INSTANCE = Mappers.getMapper(Map.class);
+
     @Mapping(target = "productId", ignore = true)
     Product toProduct(ProductDto productDto);
 

@@ -1,6 +1,7 @@
 package com.example.demo.facade;
 
 import com.example.demo.dto.ProductDto;
+import com.example.demo.metrics.MetricServiceCounter;
 import com.example.demo.response.ErrorCategory;
 import com.example.demo.response.ResponseMessage;
 import com.example.demo.service.ProductCounterService;
@@ -9,12 +10,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class ProductFacade implements ProductUniquenessFacade {
 
     private final ProductService productService;
+    private final MetricServiceCounter metricServiceCounter;
 
 
     @Override
@@ -22,13 +25,22 @@ public class ProductFacade implements ProductUniquenessFacade {
         log.info("Checking if the product is unique in the in memory counter {}", productDto.getName());
         var productCounter = ProductCounterService.getProductCounter();
 
-        if (!productCounter.contains(productDto.hashCode())) {
+        if (!productCounter.contains(productDto.getName())) {
             log.info("Product is counted: product is in the db and in the inMemory counter: name={}", productDto.getName());
             var savedProduct = productService.persistProduct(productDto);
+
             return new ResponseMessage(ErrorCategory.UNIQUE.errorDto(), savedProduct, ProductCounterService.getProductCountSize());
         } else {
             log.warn("Product is not counted: product either no in the db or in the in memory counter: name={}", productDto.getName());
             return new ResponseMessage(ErrorCategory.DUPLICATED_PRODUCT.errorDto(), ProductCounterService.getProductCountSize());
         }
     }
+
+    @Override
+    public ResponseMessage createNewProduct(ProductDto productDto) {
+        ProductDto entity = productService.postProduct(productDto);
+        return new ResponseMessage(ErrorCategory.UNIQUE.errorDto(), entity, ProductCounterService.getProductCountSize());
+    }
+
+
 }

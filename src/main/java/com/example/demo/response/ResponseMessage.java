@@ -6,10 +6,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = true)
-public class ResponseMessage extends AbstractProductErrorResponse{
+public class ResponseMessage extends AbstractProductErrorResponse {
 
 
     @JsonProperty("body")
@@ -18,11 +19,12 @@ public class ResponseMessage extends AbstractProductErrorResponse{
     @JsonProperty(value = "productCounter")
     private Number productCounter;
 
-    public ResponseMessage(final ErrorDto error, Number productCounter){
+    public ResponseMessage(final ErrorDto error, Number productCounter) {
         super(error);
         this.productCounter = productCounter;
     }
-    public ResponseMessage(final ErrorDto error, ProductDto body, int productCounter){
+
+    public ResponseMessage(final ErrorDto error, ProductDto body, int productCounter) {
         super(error);
         this.body = body;
         this.productCounter = productCounter;

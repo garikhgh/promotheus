@@ -11,6 +11,7 @@ import org.hibernate.Hibernate;
 
 import java.util.Objects;
 
+
 @Getter
 @Setter
 @ToString
@@ -21,7 +22,7 @@ import java.util.Objects;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long productId;
 
     @Column(name = "product_name", length = 20)
@@ -40,6 +41,6 @@ public class Product {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(getName(), getDescription());
     }
 }
